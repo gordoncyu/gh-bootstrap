@@ -8,8 +8,9 @@ git clone https://github.com/gordoncyu/gh-bootstrap && cd gh-bootstrap
 # key already in Bitwarden (SSH key item "github key <user>@<host>")
 ./gh-creds pull <github-user> --user gordo --host adequate-ssh-head
 
-# new key: generate, log in with gh, upload it; --save-bw also stores it in Bitwarden
+# no key yet: on a machine with a browser, make one for the target and store it
 ./gh-creds new <github-user> --user gordo --host adequate-ssh-head --save-bw
+# then on the target, pull as above (new --local installs it on this machine instead/too)
 ```
 
 Without cloning: `curl -fsSL https://raw.githubusercontent.com/gordoncyu/gh-bootstrap/main/gh-creds | bash -s -- pull <github-user> ...`
