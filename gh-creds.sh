@@ -3,15 +3,8 @@ usage() {
 usage: gh-creds pull <github-user> [--user U] [--host H]
        gh-creds new  <github-user> [--user U] [--host H] [--save-bw] [--local]
 
-The Bitwarden item is "github key U@H" (default: \$USER and \$(hostname)).
-
-pull  on the target device: install that item's key as
-      ~/.ssh/keys/gh-<github-user> with a "Host gh-<github-user>" entry
-new   on a machine with a browser: generate a key for U@H and upload it
-      with gh. --save-bw stores it in Bitwarden (then pull on the target),
-      --local also installs it here like pull. Needs at least one of them.
-
-Clone with: git clone git@gh-<github-user>:<owner>/<repo>.git
+Bitwarden item: "github key U@H" (default \$USER@\$(hostname)).
+Key: ~/.ssh/keys/gh-<github-user>, ssh host alias gh-<github-user>.
 USAGE
 }
 
