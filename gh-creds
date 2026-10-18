@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+here=$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || true)
+flake=github:gordoncyu/gh-bootstrap
+[[ -n $here && -f $here/flake.nix ]] && flake=path:$here
+exec nix --extra-experimental-features 'nix-command flakes' run "$flake" -- "$@"

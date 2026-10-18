@@ -3,12 +3,16 @@
 Get GitHub SSH credentials onto a fresh machine. Needs only Nix.
 
 ```sh
+git clone https://github.com/gordoncyu/gh-bootstrap && cd gh-bootstrap
+
 # key already in Bitwarden (SSH key item "github key <user>@<host>")
-nix --extra-experimental-features 'nix-command flakes' run github:gordoncyu/gh-bootstrap -- pull <github-user> --user gordo --host adequate-ssh-head
+./gh-creds pull <github-user> --user gordo --host adequate-ssh-head
 
 # new key: generate, log in with gh, upload it; --save-bw also stores it in Bitwarden
-nix --extra-experimental-features 'nix-command flakes' run github:gordoncyu/gh-bootstrap -- new <github-user> --user gordo --host adequate-ssh-head --save-bw
+./gh-creds new <github-user> --user gordo --host adequate-ssh-head --save-bw
 ```
+
+Without cloning: `curl -fsSL https://raw.githubusercontent.com/gordoncyu/gh-bootstrap/main/gh-creds | bash -s -- pull <github-user> ...`
 
 `--user`/`--host` pick the Bitwarden item and default to `$USER` and `$(hostname)`.
 
